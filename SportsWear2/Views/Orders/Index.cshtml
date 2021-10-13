@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SportsWear2.Models.Order>
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1><img src="~/css/images/Orders_Image.png" alt="Order Image" /> Current Orders</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrderID">Change Address</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderID">Cancel Order</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

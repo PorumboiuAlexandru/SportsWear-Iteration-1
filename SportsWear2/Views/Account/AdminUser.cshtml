@@ -1,0 +1,89 @@
+﻿@model SportsWear2.ViewModel.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+    var user = User.Identity.Name;
+
+}
+
+
+<div class="content-wrapper">
+    <div class="">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Admin User Registration</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Admin User Registration</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <!-- SELECT2 EXAMPLE -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Admin User Registration</h3>
+
+
+                    </div>
+                    <form method="post" asp-controller="Account" asp-action="AdminUser">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <h2 style="color:green;text-align:center">@ViewBag.Message</h2>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12" data-select2-id="36">
+
+
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" asp-for="Email" class="form-control" required placeholder="Enter email">
+                                        @*<span asp-validation-for="Email" class="text-danger"></span>*@
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" asp-for="Password" class="form-control" required placeholder="Password">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirm Password</label>
+                                        <input type="password" asp-for="ConfirmPassword" class="form-control" required placeholder="Confirm Password">
+                                        @*<span asp-validation-for="ConfirmPassword" class="text-danger"></span>*@
+                                    </div>
+
+                                </div>
+                                <!-- /.col -->
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Register User</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card -->
+
+            </div><!-- /.container-fluid -->
+        </section>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+
+
+
+
+}
